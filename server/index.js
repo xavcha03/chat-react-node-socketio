@@ -15,13 +15,12 @@ const io = new Server(server, {
 	},
 });
 
-const CHAT_BOT = "ChatBot";
-
-let chatRoom = "";
-let allSUers = [];
-
 io.on("connection", (socket) => {
-	console.log(socket.id);
+	console.log(socket.request._query.pseudo + " est connecté");
+
+	socket.on("room1", (user, userMessage) => {
+		console.log(user.pseudo + " send : " + userMessage);
+	});
 });
 
 app.get("/", (req, res) => {
