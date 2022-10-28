@@ -10,16 +10,18 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
 	cors: {
-		origin: "http://localhost:5173",
+		origin: "http://192.168.0.10:5173",
 		methods: ["GET", "POST"],
 	},
 });
 
 io.on("connection", (socket) => {
-	console.log(socket.request._query.pseudo + " est connecté");
+	console.log("user connected");
 
-	socket.on("room1", (user, userMessage) => {
-		console.log(user.pseudo + " send : " + userMessage);
+	socket.on("room1", (datas) => {
+		console.log("SERVER : GET DATAS : " + datas);
+
+		io.emit("room1", datas);
 	});
 });
 

@@ -1,0 +1,86 @@
+$color-primary : #073B4C;
+$color-secondary : #118AB2;
+$color-tertiary : #F6D077;
+
+
+:root {
+    --doc-height: 100%;
+   }
+   
+   html,
+   body {
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* fallback for Js load */
+    height: var(--doc-height);
+   }
+   
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $color-primary;
+
+}
+
+.chat-container{
+    height: var(--doc-height);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+    &__input, &__button{
+        background-color: $color-secondary;
+        border:3px solid black;
+        border-radius: 10px;
+        padding: 1em;
+    }
+
+    &__input{
+        width: 100%;
+    }
+
+    &__button{
+        
+    }
+}
+
+
+.msgContainer{
+    height: 100%;
+    overflow-y:scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .message{
+        border : 1px solid black;
+        border-radius: 10px;
+        background-color: $color-tertiary;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        &__user{
+            color:#118AB2;
+            font-weight: bold;
+        }
+
+        &__text{
+
+        }
+    }
+}
