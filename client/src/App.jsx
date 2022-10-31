@@ -4,18 +4,25 @@ import Identifier from './components/identifier';
 import Chat from "./components/chat/Chat"
 
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 
 
 
 const socket = io.connect('http://192.168.0.10:4000');
 
 
+
+
+
+
+
 function App() {
 
-  useEffect(() => {
+  let [user, setUser] = useState('')
 
-  })
+
+
 
   const sumbitMessageOnServer = (datas) => {
     console.log("Envoie au serveur de : " + datas);
@@ -25,8 +32,11 @@ function App() {
 
 
 
+
+
   return (< main className='chat-container'>
-    <Chat socket={socket} sumbitMessageOnServer={sumbitMessageOnServer} />
+    <Chat user={user} socket={socket} sumbitMessageOnServer={sumbitMessageOnServer} />
+
 
   </main >)
 }

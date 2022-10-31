@@ -21,6 +21,11 @@ body {
   background-color: #073B4C;
 }
 
+.identifier {
+  display: flex;
+  flex-direction: column;
+}
+
 .chat-container {
   height: var(--doc-height);
   display: flex;

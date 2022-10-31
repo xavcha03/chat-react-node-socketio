@@ -3,6 +3,7 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
+const async_hooks = require('async_hooks');
 
 app.use(cors()); // Add cors middleware
 
@@ -19,7 +20,10 @@ io.on("connection", (socket) => {
 	console.log("user connected");
 
 	socket.on("room1", (datas) => {
-		console.log("SERVER : GET DATAS : " + datas);
+		//console.log("SERVER : GET DATAS : " + datas);
+		console.table({
+			datas,
+		});
 
 		io.emit("room1", datas);
 	});
