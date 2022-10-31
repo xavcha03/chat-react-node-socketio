@@ -1,7 +1,9 @@
 import io from 'socket.io-client';
 
-import MessageForm from './components/form';
-import AllChatMessages from './components/AllChatMessages';
+import Identifier from './components/identifier';
+import Chat from "./components/chat/Chat"
+
+
 import { useEffect } from 'react';
 
 
@@ -23,11 +25,10 @@ function App() {
 
 
 
-  return < main className='chat-container'>
-    <AllChatMessages socket={socket} />
-    <MessageForm sumbitMessageOnServer={sumbitMessageOnServer.bind(this)} />
+  return (< main className='chat-container'>
+    <Chat socket={socket} sumbitMessageOnServer={sumbitMessageOnServer} />
 
-  </main >
+  </main >)
 }
 
 export default App;
